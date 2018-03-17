@@ -11,10 +11,7 @@ class Neighborhood(object):
         for i in range(self.num_rows):
             self.homes.append([])
             for j in range(self.num_cols):
-                self.homes[i].append(Home());
-                
-    def update(self):
-        pass		
+                self.homes[i].append(Home());	
 		
 
 	

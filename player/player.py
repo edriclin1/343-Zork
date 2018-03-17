@@ -15,6 +15,23 @@ class Player(object):
         self.player_attack = random.randint(10, 20)
         self.weapons = []
         for i in range(self.num_weapons):
-            temp = random.choice(self.weapon_names)()
+            temp = random.choice(self.weapon_names))()
             self.weapons[i] = temp;
-		
+
+    def damage_player(self, population):
+        
+
+    def get_player_hp(self):
+        return self.player_hp
+
+    def get_player_attack(self):
+        return self.player_attack
+
+    def get_weapons(self):
+        return self.weapons
+
+    def set_player_hp(self, player_hp):
+        self.player_hp = player_hp
+
+    def set_player_attack(self, player_attack):
+        self.player_attack = player_attack

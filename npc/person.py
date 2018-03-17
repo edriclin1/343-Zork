@@ -7,5 +7,5 @@ class Person(Npc):
         super().set_npc_hp(100)
         super().set_npc_attack(-1)
 
-    def harm(self, player):
-        pass		
+    def damage_npc(self, player):
+        super().damage_npc(player)

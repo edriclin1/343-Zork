@@ -4,8 +4,12 @@ class Npc(Observable):
 
     def __init__(self):
         super().__init__()
+	self.npc_name = ''
         self.npc_hp = 0
         self.npc_attack = 0.0
+
+    def get_npc_name(self):
+        return self.npc_name
 
     def get_npc_hp(self):
         return self.npc_hp
@@ -19,5 +23,8 @@ class Npc(Observable):
     def set_npc_attack(self, npc_attack):
         self.npc_attack = npc_attack
 
-    def harm(self, player):
+    def get_npc_name(self, npc_name):
+       self.npc_name = npc_name
+
+    def damage_npc(self, player):
         pass
