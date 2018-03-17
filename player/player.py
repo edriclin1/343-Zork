@@ -18,8 +18,15 @@ class Player(object):
             temp = random.choice(self.weapon_names))()
             self.weapons[i] = temp;
 
-    def damage_player(self, population):
-        
+    def damage_player(self, inhabitants):
+
+        total_player_damage = 0
+
+        for npc in inhabitants:
+            total_player_damage = total_player_damage + npc.get_npc_attack
+
+        updated_player_hp = self.get_player_hp() - total_player_damage
+        self.set_player_hp(updated_player_hp)
 
     def get_player_hp(self):
         return self.player_hp
