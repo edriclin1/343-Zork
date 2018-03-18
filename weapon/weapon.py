@@ -1,7 +1,7 @@
 class Weapon(object):
 
     def __init__(self):
-        super().__init__()
+        super(Weapon, self).__init__()
         self.weapon_name = ''
         self.attack_mod = 0
         self.num_uses = 0

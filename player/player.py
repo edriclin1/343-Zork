@@ -10,20 +10,20 @@ class Player(object):
     num_weapons = 10;
 
     def __init__(self):
-        super().__init__()
+        super(Player, self).__init__()
         self.player_hp = random.randint(100, 125)
         self.player_attack = random.randint(10, 20)
         self.weapons = []
         for i in range(self.num_weapons):
-            temp = random.choice(self.weapon_names))()
-            self.weapons[i] = temp;
+            temp = random.choice(self.weapon_names)()
+            self.weapons.append(temp);
 
     def damage_player(self, inhabitants):
 
         total_player_damage = 0
 
         for npc in inhabitants:
-            total_player_damage = total_player_damage + npc.get_npc_attack
+            total_player_damage = total_player_damage + npc.get_npc_attack()
 
         updated_player_hp = self.get_player_hp() - total_player_damage
         self.set_player_hp(updated_player_hp)
