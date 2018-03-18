@@ -28,6 +28,10 @@ class Player(object):
         updated_player_hp = self.get_player_hp() - total_player_damage
         self.set_player_hp(updated_player_hp)
 
+    def print_weapons(self):
+        for weapon in self.get_weapons():
+                print('Weapon: {}\tUses Remaining: {}'.format(weapon.get_weapon_name(), weapon.get_num_uses()))
+
     def get_player_hp(self):
         return self.player_hp
 

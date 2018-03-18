@@ -37,14 +37,6 @@ class Ghoul(Npc):
 
             # if npc health is less than zero notify observer (home)
             if (updated_hp <= 0):
-		super(Ghoul, self).notify_observers(self)
-
-            # reduce weapon uses
-            updated_num_uses = weapon.get_num_uses() - 1
-            weapon.set_num_uses(updated_num_uses)
-
-            # remove weapon if out of uses
-            if (updated_num_uses == 0):
-                player_weapons.remove(weapon)      
+		super(Ghoul, self).notify_observers(self)   
             
         

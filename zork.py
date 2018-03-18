@@ -9,7 +9,9 @@ if __name__ == "__main__":
         print('|')
         print('| 1: Attack monsters')
         print('| 2: Move to different house')
-        print('| 3: Restart game')
+        print('| 3: Show current location')
+        print('| 4: List weapons')
+        print('| 5: Restart game')
         print('| 0: Exit')
         print('--------------------------------------------------')
 
@@ -38,18 +40,32 @@ if __name__ == "__main__":
                 if (row < 0 or row > 4 or col < 0 or col > 4):
                     raise NameError
                     
-
-            # 
+            # print error message
             except NameError:
                 print('> Invalid row or column (0-4).')
                 continue
 
             game.move(row, col)
 
-        # if command is 3, restart game
+        # if command is 3, show curent location
         elif (command == 3):
+            print('[Current Location]')
+            row = game.get_current_row()
+            col = game.get_current_col()
+            print('({}, {})'.format(row, col))
+
+        # if command is 4, list weapons
+        elif (command == 4):
+            print('[Weapons]')
+            game.get_player().print_weapons()
+
+        # if command is 5, restart game
+        elif (command == 5):
             game = Game()
             print('> You have started a new game!')
+
+        elif (command == 0):
+            print('> Exiting game')
 
         # else invalid command
         else:

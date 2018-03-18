@@ -9,7 +9,9 @@ class Game(Observer):
         super(Game, self).__init__()
         self.neighborhood = Neighborhood()
         self.player = Player()
-	self.current_home = self.neighborhood.get_homes()[0][0]
+        self.current_row = 0
+        self.current_col = 0
+	self.current_home = self.neighborhood.get_homes()[self.current_row][self.current_col]
 	self.total_num_monsters = 0
 	self.total_num_people = 0
 	self.game_over = 0
@@ -24,7 +26,9 @@ class Game(Observer):
         if (new_row < 0 or new_col < 0):
             print('> Invalid input! Please enter a valid row and column to move to.')
         else:
-            set_current_home(self.neighborhood.get_homes()[new_row][new_col])
+            self.current_row = new_row
+            self.current_col = new_col
+            self.set_current_home(self.neighborhood.get_homes()[self.current_row][self.current_col])
 
     def attack(self):
         self.current_home.damage_monsters(self.player)
@@ -38,6 +42,12 @@ class Game(Observer):
 
     def get_current_home(self):
         return self.current_home
+
+    def get_current_row(self):
+        return self.current_row
+
+    def get_current_col(self):
+        return self.current_col
 
     def get_total_num_monsters(self):
         return self.total_num_monsters
@@ -56,6 +66,12 @@ class Game(Observer):
 
     def set_current_home(self, current_home):
         self.current_home = current_home
+
+    def set_current_row(self, current_row):
+        self.current_row = current_row
+
+    def set_current_col(self, current_col):
+        self.current_col = current_col
 
     def set_total_num_monsters(self, total_num_monsters):
         self.total_num_monsters = total_num_monsters

@@ -6,6 +6,7 @@ from npc.ghoul import Ghoul
 from npc.werewolf import Werewolf
 from npc.person import Person
 import random
+from copy import deepcopy
 
 class Home(Observer, Observable):
 
@@ -23,25 +24,56 @@ class Home(Observer, Observable):
     def update(self, arg):
         
         # remove monster and add person to population
-        self.inhabitants.remove(arg)
-        self.inhabitants.append(Person())
+        for npc in self.inhabitants:
+            if (npc == arg):
+                self.inhabitants.remove(npc)
+                self.inhabitants.append(Person())
 
-        # update number of monsters
-        self.num_monsters = self.num_monsters - 1
+                # update number of monsters
+                self.num_monsters = self.num_monsters - 1
 
-        # print message for user
-        print('> You have defeated a {}! It transforms back into a person.'.format(arg))
-        print('> Updated number of monsters in the house: {}'.format(self.num_monsters))
+                # print message for user
+                print('> You have defeated a {}! It transforms back into a person.'.format(arg.get_npc_name()))
+                print('> Updated number of monsters in the house: {}'.format(self.num_monsters))
 
-        # notify the game of population change
-	super(Home, self).notify_observers('')
+                # notify the game of population change
+	        super(Home, self).notify_observers('')
 
     # damage monsters in the house
     def damage_monsters(self, player):
 
+        #print('[Before]')
+        #self.print_npcs()
+
         # call each npc's damage function
 	for npc in self.inhabitants:
             npc.damage_npc(player)
+
+        #print('[After]')
+        #self.print_npcs()
+
+        # update weapon count
+        player_weapons = player.get_weapons()
+        index_mod = 0
+        for i in range(len(player_weapons)):
+
+            # index changes when modifying list
+            index = i - index_mod
+
+            # reduce weapon uses by 1
+            updated_num_uses = player_weapons[index].get_num_uses() - 1
+            player_weapons[index].set_num_uses(updated_num_uses)
+
+            # remove weapon if out of uses
+            if (updated_num_uses == 0):
+                player_weapons.remove(player_weapons[index])
+                index_mod = index_mod + 1  
+
+
+    # print npc list
+    def print_npcs(self):
+        for npc in self.inhabitants:
+            print('NPC: {}\tHP: {}'.format(npc.get_npc_name(), npc.get_npc_hp()))
 
     def get_num_monsters(self):
         return self.num_monsters
