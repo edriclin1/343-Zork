@@ -6,14 +6,24 @@ from weapon.nerdBomb import NerdBomb
 from player.player import Player
 import random
 
+# Class to create the Vampire object. Inherits from
+# the Npc class.
+#
+# @author Edric Lin
+# @author Austin Maley
+# @version 3/18/18
+
 class Vampire(Npc):
 
+    # Constructor for Vampire class
     def __init__(self):
         super(Vampire, self).__init__()
         super(Vampire, self).set_npc_name('Vampire')
         super(Vampire, self).set_npc_hp(random.randint(100, 200)) #https://www.youtube.com/watch?v=KzqSDvzOFNA
         super(Vampire, self).set_npc_attack(random.randint(10, 20))	
 
+    # Called to damage the npc based on player weapons
+    # @param player the player that damages the npc
     def damage_npc(self, player):
 
         # get player attack info

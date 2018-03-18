@@ -1,6 +1,13 @@
 from weapon import Weapon
 import random
 
+# Class to create the NerdBomb weapon. Inherits from 
+# Weapon class
+#
+# @author Edric Lin
+# @author Austin Maley
+# @version 3/18/18
+
 class NerdBomb(Weapon):
     def __init__(self):
         super(NerdBomb, self).__init__()

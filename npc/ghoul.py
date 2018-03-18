@@ -6,14 +6,24 @@ from weapon.nerdBomb import NerdBomb
 from player.player import Player
 import random
 
+# Class to create the Ghoul object. Inherits from
+# the Npc class.
+#
+# @author Edric Lin
+# @author Austin Maley
+# @version 3/18/18
+
 class Ghoul(Npc):
 
+    # Constructor for Ghoul class
     def __init__(self):
         super(Ghoul, self).__init__()
         super(Ghoul, self).set_npc_name('Ghoul')
         super(Ghoul, self).set_npc_hp(random.randint(40, 80)) #https://www.youtube.com/watch?v=KzqSDvzOFNA
         super(Ghoul, self).set_npc_attack(random.randint(15, 30))
 
+    # Called to damage the npc based on player weapons
+    # @param player the player that damages the npc
     def damage_npc(self, player):
 
         # get player attack info

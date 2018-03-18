@@ -6,14 +6,24 @@ from weapon.nerdBomb import NerdBomb
 from player.player import Player
 import random
 
+# Class to create the Werewolf object. Inherits from
+# the Npc class.
+#
+# @author Edric Lin
+# @author Austin Maley
+# @version 3/18/18
+
 class Werewolf(Npc):
 
+    # Constructor for Werewolf class
     def __init__(self):
         super(Werewolf, self).__init__()
         super(Werewolf, self).set_npc_name('Werewolf')
         super(Werewolf, self).set_npc_hp(200)
         super(Werewolf, self).set_npc_attack(random.randint(0, 40))
 
+    # Called to damage the npc based on player weapons
+    # @param player the player that damages the npc
     def damage_npc(self, player):
 
         # get player attack info

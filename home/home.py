@@ -8,19 +8,34 @@ from npc.person import Person
 import random
 from copy import deepcopy
 
+# Class to create the Home object. Each home starts off
+# with up to 10 monsters.
+#
+# @author Edric Lin
+# @author Austin Maley
+# @version 3/18/18
+
 class Home(Observer, Observable):
 
+    # list of possible monster types
     monster_names = [Zombie, Vampire, Ghoul, Werewolf]
 
+
+    # Constructor for Home class
     def __init__(self):
         super(Home, self).__init__()
+
+        # number of starting monsters
         self.num_monsters = random.randint(0,10)
+
+        # array of monsters
         self.inhabitants = []
         for i in range(self.num_monsters):
             temp = random.choice(self.monster_names)()
             self.inhabitants.append(temp);
 
-    # called when a monster hp reaches 0
+    # Called when a monster hp reaches 0
+    # @param arg the monster to send to observer
     def update(self, arg):
         
         # remove monster and add person to population
@@ -39,18 +54,22 @@ class Home(Observer, Observable):
                 # notify the game of population change
 	        super(Home, self).notify_observers('')
 
-    # damage monsters in the house
+    # Damage monsters in the house based on player stats
+    # @param player the player that damages the monsters
     def damage_monsters(self, player):
 
-        #print('[Before]')
-        #self.print_npcs()
+        print('')
+        print('[Before]')
+        self.print_npcs()
+        print('')
 
         # call each npc's damage function
 	for npc in self.inhabitants:
             npc.damage_npc(player)
 
-        #print('[After]')
-        #self.print_npcs()
+        print('')
+        print('[After]')
+        self.print_npcs()
 
         # update weapon count
         player_weapons = player.get_weapons()
@@ -75,15 +94,23 @@ class Home(Observer, Observable):
         for npc in self.inhabitants:
             print('NPC: {}\tHP: {}'.format(npc.get_npc_name(), npc.get_npc_hp()))
 
+    # get the number of monsters in the house
+    # @return the number of monsters in the house
     def get_num_monsters(self):
         return self.num_monsters
 
+    # get the array of inhabitants in the house
+    # @return the array of inhabitants
     def get_inhabitants (self):
         return self.inhabitants
 
+    # set the number of monsters in the house
+    # @param num_monsters the number of monsters to set
     def set_num_monsters(self, num_monsters):
         self.num_monsters = num_monsters
 
+    # set the array of inhabitants in the house
+    # @param inhabitants the array of inhabitants to set
     def set_inhabitants (self, inhabitants):
         self.inhabitants = inhabitants
 

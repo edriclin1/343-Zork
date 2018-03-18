@@ -1,6 +1,13 @@
 from weapon import Weapon
 import random
 
+# Class to create the ChocolateBar weapon. Inherits from 
+# Weapon class
+#
+# @author Edric Lin
+# @author Austin Maley
+# @version 3/18/18
+
 class ChocolateBar(Weapon):
     def __init__(self):
         super(ChocolateBar, self).__init__()
