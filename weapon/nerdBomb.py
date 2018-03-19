@@ -9,6 +9,8 @@ import random
 # @version 3/18/18
 
 class NerdBomb(Weapon):
+
+    # Constructor for NerdBomb weapon class
     def __init__(self):
         super(NerdBomb, self).__init__()
         super(NerdBomb, self).set_weapon_name('NerdBomb')

@@ -8,6 +8,8 @@ from weapon import Weapon
 # @version 3/18/18
 
 class HersheyKiss(Weapon):
+
+    # Constructor for HersheyKiss weapon class
     def __init__(self):
         super(HersheyKiss, self).__init__()
         super(HersheyKiss, self).set_weapon_name('HersheyKiss')

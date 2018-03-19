@@ -9,6 +9,8 @@ import random
 # @version 3/18/18
 
 class ChocolateBar(Weapon):
+
+    # Constructor for ChocolateBar weapon class
     def __init__(self):
         super(ChocolateBar, self).__init__()
         super(ChocolateBar, self).set_weapon_name('ChocolateBar')

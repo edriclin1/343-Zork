@@ -31,7 +31,7 @@ class Zombie(Npc):
         player_weapons = player.get_weapons()
 
         # go through all player weapons
-	for weapon in player_weapons:
+        for weapon in player_weapons:
 
             # damage equals player attack times weapon attack mod
             weapon_attack_mod = weapon.get_attack_mod()
@@ -47,4 +47,4 @@ class Zombie(Npc):
 
             # if npc health is less than zero notify observer (home)
             if (updated_hp <= 0):
-		super(Zombie, self).notify_observers(self)
+                super(Zombie, self).notify_observers(self)

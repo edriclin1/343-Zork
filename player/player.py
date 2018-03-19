@@ -19,6 +19,7 @@ class Player(object):
     # the number of weapons the player can hold
     num_weapons = 10;
 
+    # Constructor for the Player class
     def __init__(self):
         super(Player, self).__init__()
 
@@ -34,7 +35,7 @@ class Player(object):
             temp = random.choice(self.weapon_names)()
             self.weapons.append(temp);
 
-    # called to damage the player based on monsters in a house
+    # Called to damage the player based on monsters in a house
     # @param inhabitants the npcs in a house
     def damage_player(self, inhabitants):
 
@@ -46,32 +47,32 @@ class Player(object):
         updated_player_hp = self.get_player_hp() - total_player_damage
         self.set_player_hp(updated_player_hp)
 
-    # called to print the list of weapons
+    # Called to print the list of weapons
     def print_weapons(self):
         for weapon in self.get_weapons():
                 print('Weapon: {}\tUses Remaining: {}'.format(weapon.get_weapon_name(), weapon.get_num_uses()))
 
-    # get the player hp
+    # Get the player hp
     # @return the player hp
     def get_player_hp(self):
         return self.player_hp
 
-    # get the player attack
+    # Get the player attack
     # @return the player attack
     def get_player_attack(self):
         return self.player_attack
 
-    # get the player weapons
+    # Get the player weapons
     # return the player weapons
     def get_weapons(self):
         return self.weapons
 
-    # set the player hp
+    # Set the player hp
     # @param player_hp the hp to set
     def set_player_hp(self, player_hp):
         self.player_hp = player_hp
 
-    # set the player attack
+    # Set the player attack
     # @param player_attack the attack to set
     def set_player_attack(self, player_attack):
         self.player_attack = player_attack

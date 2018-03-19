@@ -16,6 +16,7 @@ class Neighborhood(object):
     # number of columns in the neighborhood
     num_cols = 5
 
+    # Constructor for the Neighborhood class
     def __init__(self):
         super(Neighborhood, self).__init__()
 
@@ -25,16 +26,16 @@ class Neighborhood(object):
             self.homes.append([])
             for j in range(self.num_cols):
                 self.homes[i].append(Home());
-		monsters = self.homes[i][j].get_inhabitants()
+                monsters = self.homes[i][j].get_inhabitants()
                 for monster in monsters:
                     monster.add_observer(self.homes[i][j])
 
-    # get the array of homes in the neighborhood
+    # Get the array of homes in the neighborhood
     # @return the array of homes
     def get_homes(self):
         return self.homes
 
-    # set the array of homes in the nieghborhood
+    # Set the array of homes in the nieghborhood
     # @param homes the array of homes to set to
     def set_homes(self, homes):
         self.homes = homes

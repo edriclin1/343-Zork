@@ -9,6 +9,8 @@ import random
 # @version 3/18/18
 
 class SourStraw(Weapon):
+
+    # Constructor for SourStraw weapon class
     def __init__(self):
         super(SourStraw, self).__init__()
         super(SourStraw, self).set_weapon_name('SourStraw')

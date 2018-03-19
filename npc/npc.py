@@ -22,7 +22,7 @@ class Npc(Observable):
         # attack of npc
         self.npc_attack = 0.0
 
-    # equal compare for comparing npc objects. matches all instance variables
+    # Equal compare for comparing npc objects. matches all instance variables
     # @param other the object to compare to
     # return whether the objects are equal
     def __eq__(self, other):
@@ -33,37 +33,37 @@ class Npc(Observable):
         else:
             return False
 
-    # get the npc name
+    # Get the npc name
     # @return the npc name
     def get_npc_name(self):
         return self.npc_name
 
-    # get the npc hp
+    # Get the npc hp
     # @return the npc hp
     def get_npc_hp(self):
         return self.npc_hp
 
-    # get the npc attack
+    # Get the npc attack
     # @return the npc attack
     def get_npc_attack(self):
         return self.npc_attack
 
-    # set the npc_name
+    # Set the npc_name
     # @param npc_name the name to set
     def set_npc_name(self, npc_name):
        self.npc_name = npc_name
 
-    # set the npc_hp
+    # Set the npc_hp
     # @param npc_hp the hp to set
     def set_npc_hp(self, npc_hp):
         self.npc_hp = npc_hp
 
-    # set the npc attack
+    # Set the npc attack
     # @param npc_attack the attack to set
     def set_npc_attack(self, npc_attack):
         self.npc_attack = npc_attack
 
-    # method to damage the npc. overidden by inheriting classes
+    # Method to damage the npc. overidden by inheriting classes
     # @param player the player that attacks
     def damage_npc(self, player):
         pass

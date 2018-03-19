@@ -7,10 +7,10 @@ from abc import ABCMeta, abstractmethod
 # @version 3/18/18
 
 class Observer(object):
-        __metaclass__ = ABCMeta
+    __metaclass__ = ABCMeta
  
-        # method to update observer
-        # @param arg the arg that was sent by observable        
-        @abstractmethod
-        def update(self, arg):
-                pass
+    # method to update observer
+    # @param arg the arg that was sent by observable        
+    @abstractmethod
+    def update(self, arg):
+        pass
