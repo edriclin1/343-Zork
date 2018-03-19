@@ -20,7 +20,7 @@ if __name__ == "__main__":
         try:
             command = input('> Enter a command: ')
         except NameError:
-            print('> Please enter a valid command (0-3).')
+            print('> Please enter a valid command (0-5).')
             continue
 
         # if command is 1, player and monsters fight
@@ -90,7 +90,7 @@ if __name__ == "__main__":
         # else invalid command
         else:
             print('')
-            print('> Please enter a valid command (0-3).')
+            print('> Please enter a valid command (0-5).')
             print('')
             continue
 
