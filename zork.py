@@ -1,10 +1,15 @@
 from game.game import Game
 
+# Main function for the zork game.
+
 if __name__ == "__main__":
+
+    # beginning game message
     print('')
     print('> WELCOME TO THE ZORK GAME!')
     game = Game()
     command = -1
+
     while (command != 0):
         print('--------------------------------------------------')
         print('| COMMANDS')
@@ -17,20 +22,17 @@ if __name__ == "__main__":
         print('| 0: Exit')
         print('--------------------------------------------------')
 
-        try:
-            command = input('> Enter a command: ')
-        except NameError:
-            print('> Please enter a valid command (0-5).')
-            continue
+
+        command = raw_input('> Enter a command: ')
 
         # if command is 1, player and monsters fight
-        if (command == 1):
+        if (command == '1'):
             game.attack()
             print('')
             print('Player HP: {}'.format(game.get_player().get_player_hp()))
 
         # if command is 2, player moves to a different house
-        elif (command == 2):
+        elif (command == '2'):
 
             print('')
             row = 0
@@ -56,7 +58,7 @@ if __name__ == "__main__":
             continue
 
         # if command is 3, show curent location
-        elif (command == 3):
+        elif (command == '3'):
             print('')
             print('[Current Location]')
             row = game.get_current_row()
@@ -66,7 +68,7 @@ if __name__ == "__main__":
             continue
 
         # if command is 4, list weapons
-        elif (command == 4):
+        elif (command == '4'):
             print('')
             print('[Weapons]')
             game.get_player().print_weapons()
@@ -74,14 +76,14 @@ if __name__ == "__main__":
             continue
 
         # if command is 5, restart game
-        elif (command == 5):
+        elif (command == '5'):
             game = Game()
             print('')
             print('> You have started a new game!')
             print('')
             continue
 
-        elif (command == 0):
+        elif (command == '0'):
             print('')
             print('> Exiting game')
             print('')
@@ -102,11 +104,13 @@ if __name__ == "__main__":
         if (game.get_game_over() == 1):
             print('> Congratulations, you saved the neighborhood!')
             print('> Starting a new game.')
+            print('')
             game = Game()
 
         elif (game.get_game_over() == -1):
             print('> You died. Better luck next time!')
             print('> Starting a new game.')
+            print('')
             game = Game()
 
         else:
